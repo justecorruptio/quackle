@@ -102,6 +102,7 @@ public:
 	void setConsideredMoves(const MoveList &moves);
 
 	const UVString &name() const;
+    const Simulator &simulator() const;
 	int id() const;
 
 	// the best move
@@ -164,6 +165,11 @@ inline const ComputerParameters &ComputerPlayer::parameters() const
 inline const UVString &ComputerPlayer::name() const
 {
 	return m_name;
+}
+
+inline const Simulator &ComputerPlayer::simulator() const
+{
+	return m_simulator;
 }
 
 inline int ComputerPlayer::id() const

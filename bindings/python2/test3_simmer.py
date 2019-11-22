@@ -80,8 +80,16 @@ for i in range(50):
     print "Player: " + player.name()
     print "Rack : " + player.rack().toString()
 
-    move = game.haveComputerPlay()
+    comp = player.computerPlayer()
+    comp.setPosition(game.currentPosition())
+    moves = comp.moves(10)
+
+    for m in moves:
+        print "%s\t%s\t%s\t%s" % (m.toString(), m.score, m.win, m.equity)
+
+    move = moves[0]
+    game.setCandidate(move)
+    game.commitCandidate()
     print 'Move: ' + move.toString()
     print 'Board: \n' + game.currentPosition().board().toString()
 
-    time.sleep(1)
